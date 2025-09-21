@@ -1,5 +1,6 @@
 package az.gmail.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import java.time.Instant;
@@ -17,6 +18,11 @@ public class EmailDetailResponse {
     private List<String> cc;
     private List<String> bcc;
     private Instant createdAt;
-    private boolean isRead;
-    private boolean isStarred;
+
+    @JsonProperty("isRead")
+    private boolean read;
+
+    @JsonProperty("isStarred")
+    private boolean starred;
+
 }

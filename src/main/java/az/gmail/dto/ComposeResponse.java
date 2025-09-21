@@ -1,5 +1,6 @@
 package az.gmail.dto;
 
+import az.gmail.enums.ComposeStatus;
 import lombok.*;
 
 @Data
@@ -7,5 +8,5 @@ import lombok.*;
 @AllArgsConstructor
 public class ComposeResponse {
     private Long id;
-    private String status;
+    private ComposeStatus status;
 }

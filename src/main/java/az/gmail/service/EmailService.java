@@ -5,7 +5,6 @@ import az.gmail.dto.EmailDetailResponse;
 import az.gmail.dto.EmailListItem;
 import az.gmail.dto.MenuCounts;
 import az.gmail.dto.ComposeRequest;
-import az.gmail.dto.*;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -25,4 +24,6 @@ public interface EmailService {
     void unstarEmail(Long userId, Long emailId);
 
     MenuCounts getMenuCounts(Long userId);
+
+    Page<EmailListItem> getEmails(Long userId, String folder, Pageable pageable, String search);
 }

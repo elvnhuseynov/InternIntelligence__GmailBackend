@@ -13,6 +13,6 @@ public class EmailListItem {
     private String snippet;
     private String senderName;
     private Instant createdAt;
-    private boolean isRead;
-    private boolean isStarred;
+    private boolean read;
+    private boolean starred;
 }

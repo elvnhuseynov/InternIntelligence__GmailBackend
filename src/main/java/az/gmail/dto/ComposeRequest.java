@@ -1,5 +1,6 @@
 package az.gmail.dto;
 
+import az.gmail.enums.ActionType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
@@ -12,13 +13,21 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ComposeRequest {
-    @NotNull
-    @NotEmpty
-    private List<@Email String> to;
-    private List<@Email String> cc;
-    private List<@Email String> bcc;
+
+    @NotEmpty(message = "Recipient list (to) cannot be empty")
+    private List<@Email(message = "Invalid email address") String> to;
+
+    private List<@Email(message = "Invalid email address") String> cc;
+
+    private List<@Email(message = "Invalid email address") String> bcc;
+
+    @NotBlank(message = "Subject cannot be blank")
+    @Size(max = 255, message = "Subject cannot exceed 255 characters")
     private String subject;
+
+    @Size(max = 5000, message = "Body cannot exceed 5000 characters")
     private String body;
-    @NotBlank
-    private String action; // SEND or SAVE
+
+    @NotNull(message = "Action is required")
+    private ActionType action;
 }
